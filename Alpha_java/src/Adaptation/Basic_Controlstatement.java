@@ -21,7 +21,7 @@ class Basic_Controlstatement {
 		this.in_num_SW();
 	}
 	
-	//Conditional construction SWITCH
+	//Conditional construction SWITCH 
 	private void in_num_SW() {
 		System.out.print("Choice the topic (1:IF-ELSE 2:WHILE 3:FOR 4:BREAK)");
 		num = input.nextInt();
