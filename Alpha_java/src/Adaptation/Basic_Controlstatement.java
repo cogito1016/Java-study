@@ -6,7 +6,7 @@ import java.util.Scanner;
 class Basic_Controlstatement {
 
 	//Conditional statement
-	//First, If-else construction 
+	//First, If-else statement
 	/*The type is  if (conditional expression)
 	               {sentence1;}
 				   else
@@ -21,7 +21,7 @@ class Basic_Controlstatement {
 		this.in_num_SW();
 	}
 	
-	//Conditional construction SWITCH 
+	//Conditional statement SWITCH 
 	private void in_num_SW() {
 		System.out.print("Choice the topic (1:IF-ELSE 2:WHILE 3:FOR 4:BREAK)");
 		num = input.nextInt();
@@ -34,8 +34,9 @@ class Basic_Controlstatement {
 		}
 		
 	}	
+	
 	   
-	//Conditional construction IF_ELSE
+	//Conditional statement IF_ELSE
 	private void in_num_IF() {
 		System.out.print("Input your grade");
 		grade = input.nextInt();
