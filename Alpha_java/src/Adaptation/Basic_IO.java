@@ -22,12 +22,13 @@ class Basic_IO {
 	//Initialized variable 'input' by making scanner typed new object.
 	Scanner input = new Scanner(System.in);
 	
-	
+	//This is constructor in this class.
 	Basic_IO() {
 		this.in_num();
 		this.out_num();
 	}
 	
+	//The Method to input number
 	private void in_num() {
 		//Output the message to receive user input
 		System.out.println("Input number");
@@ -37,6 +38,7 @@ class Basic_IO {
 		number = input.nextInt();
 	}
 	
+	//The Method to output number
 	private void out_num() {
 		//Output result.
 		System.out.println("Number is "+number);
