@@ -23,16 +23,26 @@ class Basic_Controlstatement {
 	
 	//Conditional statement SWITCH 
 	private void in_num_SW() {
-		System.out.print("Choice the topic (1:IF-ELSE 2:WHILE 3:FOR 4:BREAK)");
-		num = input.nextInt();
-		//THis is SWITCH
-		switch(num)
+		while(true)
 		{
-		case 1:
-			this.in_num_IF();
-			break;
+			System.out.print("Choice the topic (1:IF-ELSE 2:WHILE 3:FOR 4:BREAK)");
+			num = input.nextInt();
+			if(num==4)
+				break;
+			//THis is SWITCH
+			switch(num)
+			{
+			case 1:
+				this.in_num_IF();
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			}
 		}
-		
 	}	
 	
 	   

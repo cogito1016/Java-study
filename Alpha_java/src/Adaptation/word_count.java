@@ -20,7 +20,7 @@ import java.io.*;
 
 
 public class word_count {
-   public static void main(String[] args) throws IOException {
+   
       // panmoon.txt 파일을 읽어 옴.
       File pmFile = new File("panmoon.txt");
       FileReader pmRead = new FileReader(pmFile);
@@ -33,34 +33,46 @@ public class word_count {
       //스캐너객체를 생성합니다 이 객체는 텍스트를 불러읽어들이기 위함입니다.
       Scanner sentence = new Scanner(bfRead);
       
+      public word_count() throws IOException
+      {
+	    	  this.mainoper();
+	    	  this.printmap();
 
-      /*한 줄씩 읽어들입니다 마지막줄까지 읽어들였다면 종료됩니다.
-       *sentence는 공백을 기준으로 읽어들이는 문자열 배열입니다.*/
-      while (sentence.hasNextLine()) {
-         String sv[] = sentence.nextLine().split(" ");
-         for (int i = 0; i < sv.length; i++) {
-        	 
-        	 	//맵 wordcount에 sv[i]의 value값(integer)을 갖고와 counter변수에 넣습니다 
-            Integer counter = wordcount.get(sv[i]);
-            
-            //그 counter값이NULL이면 최촉값이 맵 wordcountd에 새로운 sv[i]키와 1value값을 넣습니다 
-            if (counter == null)
-               wordcount.put(sv[i], 1);
-            //아니면 중복되었다는 뜻이므로 sv[i]키값에 기존 counter값+1의 값을 집어넣습니다!
-            else
-               wordcount.put(sv[i], counter + 1);
-         }
+         // 텍스트 파일을 종료합니다.
+	    	  bfRead.close();
+	    	  pmRead.close();
+    	  
       }
-
+      void mainoper()
+      {
+	      /*한 줄씩 읽어들입니다 마지막줄까지 읽어들였다면 종료됩니다.
+	       *sentence는 공백을 기준으로 읽어들이는 문자열 배열입니다.*/
+	      while (sentence.hasNextLine()) {
+	         String sv[] = sentence.nextLine().split(" ");
+	         for (int i = 0; i < sv.length; i++) {
+	        	 
+	        	 	//맵 wordcount에 sv[i]의 value값(integer)을 갖고와 counter변수에 넣습니다 
+	            Integer counter = wordcount.get(sv[i]);
+	            
+	            //그 counter값이NULL이면 최촉값이 맵 wordcountd에 새로운 sv[i]키와 1value값을 넣습니다 
+	            if (counter == null)
+	               wordcount.put(sv[i], 1);
+	            //아니면 중복되었다는 뜻이므로 sv[i]키값에 기존 counter값+1의 값을 집어넣습니다!
+	            else
+	               wordcount.put(sv[i], counter + 1);
+	         }
+	      }
+      }
       
       
-      //수업에 나온대로 Foreach문 + 람다식으로 단어의 횟수를 출력해보았습니다 이상입니다.
-      wordcount.forEach((key, value) -> {
-         System.out.println("'" + key + "'" + " 단어가 나온 횟수 : " + value);
-      });
-
-      // 텍스트 파일을 종료합니다.
-      bfRead.close();
-      pmRead.close();
-   }
+      void printmap()
+      {
+	      //수업에 나온대로 Foreach문 + 람다식으로 단어의 횟수를 출력해보았습니다 이상입니다.
+	      wordcount.forEach((key, value) -> {
+	         System.out.println("'" + key + "'" + " 단어가 나온 횟수 : " + value);
+	      });
+      }
+      
+      
+   
 }
