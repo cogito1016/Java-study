@@ -29,7 +29,9 @@ public class Report_Compare {
 		numS=wordnum(f2);
 		//Total WordCount
 		sum = numF.size()+numS.size();
+		System.out.println(sum);
 		
+		compare(numF,numS);
 
 	}
 	
@@ -56,11 +58,40 @@ public class Report_Compare {
 		return wordcount;
 	}
 	
-	//두 파일의 중보되는 단어의 개수를 파악하는 compare메소드
-	//두 파일을을 입력받아
-	void compare(Map<String,Integer> M1, File M2) throws FileNotFoundException
+	/*두 파일의 중보되는 단어의 개수를 파악하는 compare메소드
+	 *두 파일을 분석한 결과로의 Map타입의 객체를 매개변수로 받는 compare메소드입니다*/
+	void compare(Map<String,Integer> M1, Map<String,Integer> M2) throws FileNotFoundException
 	{
+		Map<String,Integer> mapF = M1;
+		Map<String,Integer> mapS = M2;
+			
+		int i=0,j=0,count=0;
+		String S1 = mapF.toString();
+		String S1test[] = S1.split(" ");
 		
+		String S2 = mapS.toString();
+		String S2test[] = S2.split(" ");
+		
+		System.out.println(S1test[5]);
+		
+		while(i<S2test.length)
+		{
+			//System.out.println(i+"i");
+			while(j<S1test.length)
+			{
+				//System.out.println(j+"J");
+				if(S2test[i]==S1test[j])
+				{
+					count++;
+					System.out.println(S2test[i]+"겹친다");
+				}
+				
+				
+				j++;
+			}
+			j=0;
+			i++;
+		}
 		
 		
 	}
