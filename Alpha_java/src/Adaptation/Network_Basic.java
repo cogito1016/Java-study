@@ -1,9 +1,13 @@
 package Adaptation;
 
 import java.io.BufferedReader;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.InetAddress;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.UnknownHostException;
@@ -18,6 +22,7 @@ public class Network_Basic {
 	{
 		this.getIP();
 		this.urltest();
+		this.getImage();
 	}
 	
 	//URL의 IP주소 찾아오기
@@ -58,9 +63,25 @@ public class Network_Basic {
 	}
 	
 	//웹에서 이미지파일 다운로드하기
-	void getImage()
+	void getImage() throws MalformedURLException
 	{
+		String website = "http://www.oracle.com/us/hp07-bg121314-openworld-2x-2280475.jpg";
+		System.out.println(""+website+"사이트에서 이미지를 다운로드한다");
+		URL url = new URL(website);
+		byte[] buffer = new byte[2048];
 		
+		try(InputStream in = url.openStream();
+				OutputStream out = new FileOutputStream("test.jpg");) {
+			int length=0;
+			while((length=in.read(buffer))!=-1) {
+				System.out.println(""+length+"바이트만큼 읽었음!");
+				out.write(buffer,0,length);
+			}
+			in.close();
+			out.close();
+		}catch(Exception e) {
+			System.out.println("예외"+e.getMessage());
+		}
 	}
 	
 	
