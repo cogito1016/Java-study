@@ -22,52 +22,45 @@ public class Report_Compare {
 	
 	public Report_Compare() throws IOException
 	{
-		int numF,numS,sum=0;
+		Map<String, Integer> numF,numS;
+		int sum=0;
 		//Map을 사용하여 파일 각각의 고유의(중복되는것없이)단어 개수 카운트
 		numF=wordnum(f1);
 		numS=wordnum(f2);
 		//Total WordCount
-		sum = numF+numS;
+		sum = numF.size()+numS.size();
 		
 
 	}
 	
-	//파일의 단어개수를 파악하는 wordnum메소드
-	int wordnum(File F) throws IOException
+	//파일의 단어개수를 파악하는 wordnum메소드입니다
+	Map<String, Integer> wordnum(File F) throws IOException
 	{
 		FileReader R = new FileReader(F);
 		BufferedReader B = new BufferedReader(R);
 		Map<String, Integer> wordcount = new HashMap<>();
 		Scanner sentence = new Scanner(B);
 		
-		int totalnum;
 		while(sentence.hasNextLine())
 		{
 			String sv[] = sentence.nextLine().split(" ");
+			
 			for(int i=0; i<sv.length;i++)
 			{
-				
 				wordcount.put(sv[i], 1);
 			}
 		}
-		totalnum=wordcount.size();
-		System.out.println(F.getName()+"  totalnum=   "+totalnum);
+		
 		B.close();
 		R.close();
-		return totalnum;
+		return wordcount;
 	}
 	
 	//두 파일의 중보되는 단어의 개수를 파악하는 compare메소드
-	void compare(File F1, File F2) throws FileNotFoundException
+	//두 파일을을 입력받아
+	void compare(Map<String,Integer> M1, File M2) throws FileNotFoundException
 	{
-		FileReader R1 = new FileReader(F1);
-		BufferedReader B1 = new BufferedReader(R1);
-		FileReader R2 = new FileReader(F2);
-		BufferedReader B2 = new BufferedReader(R2);
 		
-		Map<String, Integer> wordcount = new HashMap<>();
-		Scanner sentence1 = new Scanner(B1);
-		Scanner sentence2 = new Scanner(B2);
 		
 		
 	}

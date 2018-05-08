@@ -15,7 +15,7 @@ public class Output_Main {
 		Scanner scann = new Scanner(System.in);
 		
 		System.out.println("::Choice the subject::");
-		System.out.println("1:ControlStatement 2:BasicIO 3:Map 4:WordCount 5:ReportCompare");
+		System.out.println("1:ControlStatement 2:BasicIO 3:Map 4:WordCount 5:ReportCompare 6:NetworkBasic");
 		int innum = scann.nextInt();
 		
 		switch(innum)
@@ -34,6 +34,9 @@ public class Output_Main {
 			break;
 		case 5:
 			Report_Compare Example5 = new Report_Compare();
+			break;
+		case 6:
+			Network_Basic Example6 = new Network_Basic();
 			break;
 			
 		}
