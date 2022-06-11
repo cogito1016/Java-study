@@ -33,6 +33,10 @@ public class AppleWeightSortTest {
         });
     }
 
+    public static void sortUsedJava8(List<Apple> apples){
+        apples.sort(Comparator.comparing(Apple::getWeight));
+    }
+
     public static void main(String[] args) {
         Apple lowWeightApple = new Apple("100");
         Apple highWeightApple = new Apple("200");
@@ -43,7 +47,8 @@ public class AppleWeightSortTest {
 
         printApples(apples);
 
-        sortUsedCollectionsSort(apples);
+//        sortUsedCollectionsSort(apples);
+        sortUsedJava8(apples);
 
         printApples(apples);
     }
