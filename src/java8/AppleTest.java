@@ -17,12 +17,24 @@ public class AppleTest {
         return greenApples;
     }
 
+    public static List<Apple> filterApplesByColor(List<Apple> apples, Color color){
+        List<Apple> greenApples = new ArrayList<>();
+
+        for(Apple apple : apples){
+            if(color.equals(apple.getColor())){
+                greenApples.add(apple);
+            }
+        }
+
+        return greenApples;
+    }
+
     public static void main(String[] args) {
         List<Apple> apples = new ArrayList<>();
         Apple redApple = new Apple("100",Color.RED);
         Apple greenApple = new Apple("200",Color.GREEN);
         Apple greenApple2 = new Apple("300",Color.GREEN);
-        List<Apple> greens = new ArrayList<>();
+        List<Apple> newApples = new ArrayList<>();
 
         apples.add(redApple);
         apples.add(greenApple);
@@ -30,8 +42,9 @@ public class AppleTest {
 
         Apple.printApples(apples);
 
-        greens = filterGreenApples(apples);
+//        newApples = filterGreenApples(apples);
+        newApples = filterApplesByColor(apples, Color.RED);
 
-        Apple.printApples(greens);
+        Apple.printApples(newApples);
     }
 }
