@@ -3,27 +3,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-class Apple{
-    private String weight;
 
-    public Apple(String weight){
-        this.weight = weight;
-    }
-
-    public String getWeight(){
-        return weight;
-    }
-}
 
 public class AppleWeightSortTest {
-
-    public static void printApples(List<Apple> apples){
-        System.out.println("Print Apple");
-        apples.stream().forEach((Apple apple)->{
-            System.out.println(apple.getWeight());
-        });
-    }
-
     public static void sortUsedCollectionsSort(List<Apple> apples){
         Collections.sort(apples, new Comparator<Apple>() {
             @Override
@@ -45,11 +27,11 @@ public class AppleWeightSortTest {
         apples.add(highWeightApple);
         apples.add(lowWeightApple);
 
-        printApples(apples);
+        Apple.printApples(apples);
 
 //        sortUsedCollectionsSort(apples);
         sortUsedJava8(apples);
 
-        printApples(apples);
+        Apple.printApples(apples);
     }
 }
