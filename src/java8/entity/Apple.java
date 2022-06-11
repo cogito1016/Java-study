@@ -1,3 +1,7 @@
+package entity;
+
+import enums.Color;
+
 import java.util.List;
 
 public class Apple {
@@ -19,9 +23,9 @@ public class Apple {
     public Color getColor(){return this.color;}
 
     public static void printApples(List<Apple> apples){
-        System.out.println("Print Apple");
+        System.out.println("Print entity.Apple");
         apples.stream().forEach((Apple apple)->{
-            System.out.println("Weight : "+apple.getWeight()+" Color : "+apple.getColor());
+            System.out.println("Weight : "+apple.getWeight()+" enums.Color : "+apple.getColor());
         });
     }
 }

@@ -1,6 +1,9 @@
+package run;
+
+import entity.Apple;
+import enums.Color;
+
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class AppleTest {
@@ -61,9 +64,9 @@ public class AppleTest {
 
     public static void main(String[] args) {
         List<Apple> apples = new ArrayList<>();
-        Apple redApple = new Apple("100",Color.RED);
-        Apple greenApple = new Apple("200",Color.GREEN);
-        Apple greenApple2 = new Apple("300",Color.GREEN);
+        Apple redApple = new Apple("100", Color.RED);
+        Apple greenApple = new Apple("200", Color.GREEN);
+        Apple greenApple2 = new Apple("300", Color.GREEN);
         List<Apple> newApples = new ArrayList<>();
 
         apples.add(redApple);
@@ -73,10 +76,10 @@ public class AppleTest {
         Apple.printApples(apples);
 
 //        newApples = filterGreenApples(apples);
-//        newApples = filterApplesByColor(apples, Color.RED);
+//        newApples = filterApplesByColor(apples, enums.Color.RED);
 //        newApples = filterApplesByWeight(apples, "200");
 
-//        newApples = filterApplesByColorOrWeight(apples, Color.RED,"");
+//        newApples = filterApplesByColorOrWeight(apples, enums.Color.RED,"");
         newApples = filterApplesByColorOrWeight(apples, null,"200");
 
         Apple.printApples(newApples);
