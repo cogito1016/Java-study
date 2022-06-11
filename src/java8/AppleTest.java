@@ -41,6 +41,24 @@ public class AppleTest {
         return result;
     }
 
+    public static List<Apple> filterApplesByColorOrWeight(List<Apple> apples, Color color, String weight){
+        List<Apple> result = new ArrayList<>();
+
+        for(Apple apple : apples){
+            if(color!=null){
+                if(color.equals(apple.getColor())){
+                    result.add(apple);
+                }
+            }else{
+                if(weight.equals(apple.getWeight())){
+                    result.add(apple);
+                }
+            }
+        }
+
+        return result;
+    }
+
     public static void main(String[] args) {
         List<Apple> apples = new ArrayList<>();
         Apple redApple = new Apple("100",Color.RED);
@@ -56,7 +74,10 @@ public class AppleTest {
 
 //        newApples = filterGreenApples(apples);
 //        newApples = filterApplesByColor(apples, Color.RED);
-        newApples = filterApplesByWeight(apples, "200");
+//        newApples = filterApplesByWeight(apples, "200");
+
+//        newApples = filterApplesByColorOrWeight(apples, Color.RED,"");
+        newApples = filterApplesByColorOrWeight(apples, null,"200");
 
         Apple.printApples(newApples);
     }
