@@ -10,6 +10,7 @@ import enums.Color;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class AppleTest {
 
@@ -79,6 +80,18 @@ public class AppleTest {
         return result;
     }
 
+    public static <T> List<T> filter(List<T> list, Predicate<T> p){
+        List<T> result = new ArrayList<>();
+
+        for(T t : list){
+            if(p.test(t)){
+                result.add(t);
+            }
+        }
+
+        return result;
+    }
+
     public static void main(String[] args) {
         List<Apple> apples = new ArrayList<>();
         Apple redApple = new Apple("100", Color.RED);
@@ -103,8 +116,8 @@ public class AppleTest {
 
 //        newApples = filterApplesByPredicate(apples, new AppleGreenColorPredicate());
 //        newApples = filterApplesByPredicate(apples, new AppleHeavyWeightPredicate());
-        newApples = filterApplesByPredicate(apples, (Apple apple)-> Color.RED.equals(apple.getColor()));
-
+//        newApples = filterApplesByPredicate(apples, (Apple apple)-> Color.RED.equals(apple.getColor()));
+        newApples = filter(apples, (Apple apple)-> Color.GREEN.equals(apple.getColor()));
 
 //        Apple.printApples(newApples);
 //        Apple.prettyPrintApple(newApples, new AppleSimpleFormatter());
