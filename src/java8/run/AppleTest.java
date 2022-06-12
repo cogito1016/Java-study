@@ -102,10 +102,12 @@ public class AppleTest {
 //        newApples = filterApplesByColorOrWeight(apples, null,"200");
 
 //        newApples = filterApplesByPredicate(apples, new AppleGreenColorPredicate());
-        newApples = filterApplesByPredicate(apples, new AppleHeavyWeightPredicate());
+//        newApples = filterApplesByPredicate(apples, new AppleHeavyWeightPredicate());
+        newApples = filterApplesByPredicate(apples, (Apple apple)-> Color.RED.equals(apple.getColor()));
+
 
 //        Apple.printApples(newApples);
-//        Apple.prettyPrintApple(apples, new AppleSimpleFormatter());
-        Apple.prettyPrintApple(apples, new AppleFancyFormatter());
+//        Apple.prettyPrintApple(newApples, new AppleSimpleFormatter());
+        Apple.prettyPrintApple(newApples, new AppleFancyFormatter());
     }
 }
