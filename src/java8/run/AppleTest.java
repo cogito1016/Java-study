@@ -1,8 +1,10 @@
 package run;
 
+import applePredicate.AppleFancyFormatter;
 import applePredicate.AppleGreenColorPredicate;
 import applePredicate.AppleHeavyWeightPredicate;
 import applePredicate.ApplePredicate;
+import applePredicate.AppleSimpleFormatter;
 import entity.Apple;
 import enums.Color;
 
@@ -88,7 +90,9 @@ public class AppleTest {
         apples.add(greenApple);
         apples.add(greenApple2);
 
-        Apple.printApples(apples);
+//        Apple.printApples(apples);
+//        Apple.prettyPrintApple(apples, new AppleSimpleFormatter());
+        Apple.prettyPrintApple(apples, new AppleFancyFormatter());
 
 //        newApples = filterGreenApples(apples);
 //        newApples = filterApplesByColor(apples, enums.Color.RED);
@@ -100,6 +104,8 @@ public class AppleTest {
 //        newApples = filterApplesByPredicate(apples, new AppleGreenColorPredicate());
         newApples = filterApplesByPredicate(apples, new AppleHeavyWeightPredicate());
 
-        Apple.printApples(newApples);
+//        Apple.printApples(newApples);
+//        Apple.prettyPrintApple(apples, new AppleSimpleFormatter());
+        Apple.prettyPrintApple(apples, new AppleFancyFormatter());
     }
 }

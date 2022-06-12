@@ -1,5 +1,6 @@
 package entity;
 
+import applePredicate.AppleFormatter;
 import enums.Color;
 
 import java.util.List;
@@ -27,5 +28,13 @@ public class Apple {
         apples.stream().forEach((Apple apple)->{
             System.out.println("Weight : "+apple.getWeight()+" enums.Color : "+apple.getColor());
         });
+    }
+
+    public static void prettyPrintApple(List<Apple> apples, AppleFormatter appleFormatter){
+        System.out.println("Print --");
+        for(Apple apple : apples){
+            String result = appleFormatter.accept(apple);
+            System.out.println(result);
+        }
     }
 }
