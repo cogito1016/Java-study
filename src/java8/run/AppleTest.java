@@ -1,5 +1,8 @@
 package run;
 
+import applePredicate.AppleGreenColorPredicate;
+import applePredicate.AppleHeavyWeightPredicate;
+import applePredicate.ApplePredicate;
 import entity.Apple;
 import enums.Color;
 
@@ -62,6 +65,18 @@ public class AppleTest {
         return result;
     }
 
+    public static List<Apple> filterApplesByPredicate(List<Apple> apples, ApplePredicate applePredicate){
+        List<Apple> result = new ArrayList<>();
+
+        for(Apple apple : apples){
+            if(applePredicate.test(apple)){
+                result.add(apple);
+            }
+        }
+
+        return result;
+    }
+
     public static void main(String[] args) {
         List<Apple> apples = new ArrayList<>();
         Apple redApple = new Apple("100", Color.RED);
@@ -80,7 +95,10 @@ public class AppleTest {
 //        newApples = filterApplesByWeight(apples, "200");
 
 //        newApples = filterApplesByColorOrWeight(apples, enums.Color.RED,"");
-        newApples = filterApplesByColorOrWeight(apples, null,"200");
+//        newApples = filterApplesByColorOrWeight(apples, null,"200");
+
+//        newApples = filterApplesByPredicate(apples, new AppleGreenColorPredicate());
+        newApples = filterApplesByPredicate(apples, new AppleHeavyWeightPredicate());
 
         Apple.printApples(newApples);
     }
