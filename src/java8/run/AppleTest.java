@@ -120,6 +120,7 @@ public class AppleTest {
 
         //How to operate?
         //Predicate<T>를 기대하는곳에 람다를 넘겨주었다. 가능한이유는?
+        //람다표현식은 함수형인터페이스의 추상메서드의 인스턴스로 취급될 수 있다.
         newApples = filter(apples, (Apple apple)-> Color.GREEN.equals(apple.getColor()));
 
 
