@@ -117,7 +117,12 @@ public class AppleTest {
 //        newApples = filterApplesByPredicate(apples, new AppleGreenColorPredicate());
 //        newApples = filterApplesByPredicate(apples, new AppleHeavyWeightPredicate());
 //        newApples = filterApplesByPredicate(apples, (Apple apple)-> Color.RED.equals(apple.getColor()));
+
+        //How to operate?
+        //Predicate<T>를 기대하는곳에 람다를 넘겨주었다. 가능한이유는?
         newApples = filter(apples, (Apple apple)-> Color.GREEN.equals(apple.getColor()));
+
+
 
 //        Apple.printApples(newApples);
 //        Apple.prettyPrintApple(newApples, new AppleSimpleFormatter());
