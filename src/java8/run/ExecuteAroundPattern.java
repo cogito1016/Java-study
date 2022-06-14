@@ -1,12 +1,14 @@
 package run;
 
+import processor.BufferedReaderProcessor;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
 public class ExecuteAroundPattern {
 
-    public String processFile() throws IOException{
+    public static String processFile() throws IOException{
         //1.초기화/준비
         //2.작업
         //3.정리/마무리
@@ -16,10 +18,16 @@ public class ExecuteAroundPattern {
         try (BufferedReader br = new BufferedReader(new FileReader("data.txt")); ) {
             return br.readLine(); //실제 작업
         }
-
     }
 
-    public static void main(String[] args) {
+    //BufferedReaderProcessor process메서드 시그니처 (BufferedReader -> String)와 일치하는 람다 전달가능
+    public static String processFile(BufferedReaderProcessor bufferedReaderProcessor) throws IOException{
+        try(BufferedReader br = new BufferedReader(new FileReader("data.txt")); ){
+            return bufferedReaderProcessor.process(br);
+        }
+    }
 
+    public static void main(String[] args) throws IOException {
+        String st = processFile((BufferedReader br)->br.readLine()+br.readLine());
     }
 }
