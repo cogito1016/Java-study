@@ -115,7 +115,7 @@ public class AppleTest {
 //        newApples = filterApplesByColorOrWeight(apples, null,"200");
 
 //        newApples = filterApplesByPredicate(apples, new AppleGreenColorPredicate());
-//        newApples = filterApplesByPredicate(apples, new AppleHeavyWeightPredicate());
+//        newApples = filterApplesByPredicate(apples, new Apple HeavyWeightPredicate());
 //        newApples = filterApplesByPredicate(apples, (Apple apple)-> Color.RED.equals(apple.getColor()));
 
         //How to operate?
