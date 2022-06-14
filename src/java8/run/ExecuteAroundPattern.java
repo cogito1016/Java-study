@@ -28,6 +28,7 @@ public class ExecuteAroundPattern {
     }
 
     public static void main(String[] args) throws IOException {
-        String st = processFile((BufferedReader br)->br.readLine()+br.readLine());
+        String oneLine = processFile((BufferedReader br)->br.readLine());
+        String twoLine = processFile((BufferedReader br)->br.readLine()+br.readLine());
     }
 }
