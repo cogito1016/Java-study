@@ -40,7 +40,19 @@ public class Repeat_220617 {
         for(T t : list){
             System.out.println(t.toString());
         }//for end
-    }//for end
+    }//prettyPrint end
+
+    public static <T> List<T> filter(List<T> list, Predicate<T> predicate){
+        List<T> result = new ArrayList<>();
+
+        for(T t : list){
+            if(predicate.test(t)){
+                result.add(t);
+            }//if end
+        }//for endd
+
+        return result;
+    } //filter end
 
     public static void main(String[] args) {
         List<Apple> apples = new ArrayList<>();
@@ -52,6 +64,9 @@ public class Repeat_220617 {
 
         List<String> applesWeight = apply(apples,(Apple a)->a.getWeight());
         prettyPrint(applesWeight);
+
+        List<Apple> greenApples = filter(apples, (Apple a)->a.getColor().equals(Color.GREEN));
+        prettyPrint(greenApples);
 
         accept(apples, (Apple a)-> System.out.println(a.getColor()+"색 싸과는 정말맛있어보여!"));
 
