@@ -14,6 +14,7 @@ import enums.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class Repeat_220617 {
 
@@ -27,13 +28,22 @@ public class Repeat_220617 {
         return  result;
     }//apply end
 
+    public static <T> void prettyPrint(List<T> list){
+        System.out.println("Print PrettyPrint ----");
+        for(T t : list){
+            System.out.println(t.toString());
+        }//for end
+    }//for end
+
     public static void main(String[] args) {
         List<Apple> apples = new ArrayList<>();
         apples.add(new Apple("100", Color.GREEN));
         apples.add(new Apple("200", Color.RED));
         apples.add(new Apple("300", Color.GREEN));
         apples.add(new Apple("400", Color.RED));
+        prettyPrint(apples);
 
         List<String> applesWeight = apply(apples,(Apple a)->a.getWeight());
+        prettyPrint(applesWeight);
     }
 }

@@ -23,10 +23,14 @@ public class Apple {
 
     public Color getColor(){return this.color;}
 
+    public String toString(){
+        return "Weight : "+this.getWeight()+" enums.Color : "+this.getColor();
+    }
+
     public static void printApples(List<Apple> apples){
         System.out.println("Print entity.Apple");
         apples.stream().forEach((Apple apple)->{
-            System.out.println("Weight : "+apple.getWeight()+" enums.Color : "+apple.getColor());
+            System.out.println(apple.toString());
         });
     }
 
