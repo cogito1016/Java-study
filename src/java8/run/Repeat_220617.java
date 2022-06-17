@@ -8,8 +8,32 @@ package run;
 //Consumer
 //Functiton
 
+import entity.Apple;
+import enums.Color;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Function;
+
 public class Repeat_220617 {
 
+    public static <T,R> List<R> apply(List<T> list, Function<T,R> function){
+        List<R> result = new ArrayList<>();
+
+        for(T t : list){
+            result.add(function.apply(t));
+        }//for end
+
+        return  result;
+    }//apply end
+
     public static void main(String[] args) {
+        List<Apple> apples = new ArrayList<>();
+        apples.add(new Apple("100", Color.GREEN));
+        apples.add(new Apple("200", Color.RED));
+        apples.add(new Apple("300", Color.GREEN));
+        apples.add(new Apple("400", Color.RED));
+
+        List<String> applesWeight = apply(apples,(Apple a)->a.getWeight());
     }
 }
