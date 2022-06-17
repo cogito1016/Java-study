@@ -13,10 +13,17 @@ import enums.Color;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class Repeat_220617 {
+
+    public static <T> void accept(List<T> list, Consumer<T> consumer){
+        for(T t : list){
+            consumer.accept(t);
+        }//for end
+    }//accept end
 
     public static <T,R> List<R> apply(List<T> list, Function<T,R> function){
         List<R> result = new ArrayList<>();
@@ -45,5 +52,8 @@ public class Repeat_220617 {
 
         List<String> applesWeight = apply(apples,(Apple a)->a.getWeight());
         prettyPrint(applesWeight);
+
+        accept(apples, (Apple a)-> System.out.println(a.getColor()+"색 싸과는 정말맛있어보여!"));
+
     }
 }
