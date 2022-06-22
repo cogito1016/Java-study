@@ -14,7 +14,7 @@ public class ExceptionTest {
         //함수형 인터페이스에 직접 예외를 선언하거나,
         BufferedReaderProcessor p = (BufferedReader br)->br.readLine();
 
-        //람다를 try/catch블록으로 감싸야한다.
+        //람다를 try-catch블록으로 감싸야한다.
         Function<BufferedReader, String> f = (BufferedReader b) -> {
             try{
                 return b.readLine();
