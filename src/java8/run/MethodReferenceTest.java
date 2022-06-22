@@ -4,6 +4,7 @@ import entity.Apple;
 import enums.Color;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class MethodReferenceTest {
@@ -15,7 +16,8 @@ public class MethodReferenceTest {
         inventory.add(a1);
         inventory.add(a2);
 
-        inventory.sort((Apple firstApple, Apple secondApple)-> firstApple.getWeight().compareTo(secondApple.getWeight()));
+//        inventory.sort((Apple firstApple, Apple secondApple)-> firstApple.getWeight().compareTo(secondApple.getWeight()));
+        inventory.sort(Comparator.comparing(Apple::getWeight));
 
         Apple.printApples(inventory);
     }
