@@ -12,5 +12,6 @@ public class IntPredicateTest {
 
         Predicate<Integer> oddNumbers = (Integer i) -> i % 2 == 0;
         oddNumbers.test(1000); // Unboxing
+
     }
 }
