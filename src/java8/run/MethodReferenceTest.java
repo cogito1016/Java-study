@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.BiFunction;
 import java.util.function.BiPredicate;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -66,10 +67,17 @@ public class MethodReferenceTest {
         return apples;
     }
 
+    public static void example_5(){
+        BiFunction<String, Color, Apple> c3 = Apple::new;
+        Apple a = c3.apply("100", Color.RED);
+        System.out.println(a.toString());
+    }
+
 
     public static void main(String[] args) {
 //        example_1();
 //        example_2();
-        example_4();
+//        example_4();
+        example_5();
     }
 }
