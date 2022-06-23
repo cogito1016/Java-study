@@ -50,7 +50,8 @@ public class MethodReferenceTest {
 
     public static void example_4(){
         List<String> weights = Arrays.asList("7", "3", "4", "10");
-        List<Apple> apples = map(weights, (String weight)-> new Apple(weight));
+//        List<Apple> apples = map(weights, (String weight)-> new Apple(weight));
+        List<Apple> apples = map(weights, Apple::new);
 
         Apple.printApples(apples);
     }
