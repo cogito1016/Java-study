@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.BiPredicate;
+import java.util.function.Predicate;
+import java.util.function.ToIntFunction;
 
 public class MethodReferenceTest {
     public static void example_1(){
@@ -31,6 +34,17 @@ public class MethodReferenceTest {
         for(String s : str){
             System.out.println(s);
         }
+    }
+
+    public static void example_3(){
+        ToIntFunction<String> stringToInt = (String s)->Integer.parseInt(s);
+        ToIntFunction<String> stringToInt_ = Integer::parseInt;
+
+        BiPredicate<List<String>, String> contains = (list, element) -> list.contains(element); //첫째 인수(List형식)의 contains메서드 호출
+        BiPredicate<List<String>, String> contains_ = List::contains;
+
+        Predicate<String> startsWithNumber = (String string) -> this.startsWithNumber(string); //비공개 헬퍼 메서드호출
+        Predicate<String> startsWithNumber_ = this::startsWithNumber;
     }
 
     public static void main(String[] args) {
