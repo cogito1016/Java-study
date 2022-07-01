@@ -33,8 +33,8 @@ public class AppleWeightSortTest {
 
         Apple.printApples(apples);
 
-//        sortUsedCollectionsSort(apples);
-        sortUsedJava8(apples);
+        sortUsedCollectionsSort(apples);
+//        sortUsedJava8(apples);
 
         Apple.printApples(apples);
     }
