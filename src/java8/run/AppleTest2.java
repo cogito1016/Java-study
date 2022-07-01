@@ -20,14 +20,16 @@ public class AppleTest2 {
     }
 
     public static void main(String[] args) {
-        Apple a1 = new Apple("100", Color.GREEN);
-        Apple a2 = new Apple("200",Color.RED);
-        Apple a3 = new Apple("50", Color.GREEN);
+        Apple a1 = new Apple("5", Color.GREEN);
+        Apple a2 = new Apple("1",Color.RED);
+        Apple a3 = new Apple("3", Color.GREEN);
+        Apple a4 = new Apple("2", Color.RED);
 
         List<Apple> list = new ArrayList<>();
         list.add(a1);
         list.add(a2);
         list.add(a3);
+        list.add(a4);
 
         Apple.printApples(list);
 
