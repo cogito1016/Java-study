@@ -10,16 +10,13 @@ import java.util.List;
 
 public class AppleTest2 {
 
-    public static List<Apple> getSortedList_1(List<Apple> list){
-        List<Apple> result = list;
-        Collections.sort(result, new Comparator<Apple>() {
+    public static void getSortedList_1(List<Apple> list){
+        Collections.sort(list, new Comparator<Apple>() {
             @Override
             public int compare(Apple o1, Apple o2) {
                 return o1.getWeight().compareTo(o2.getWeight());
             }
         });
-
-        return result;
     }
 
     public static void main(String[] args) {
