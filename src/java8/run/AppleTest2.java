@@ -19,6 +19,10 @@ public class AppleTest2 {
         });
     }
 
+    public static void getSortedList_2(List<Apple> list, Comparator comparator){
+        Collections.sort(list, comparator);
+    }
+
     public static void main(String[] args) {
         Apple a1 = new Apple("5", Color.GREEN);
         Apple a2 = new Apple("1",Color.RED);
@@ -33,7 +37,13 @@ public class AppleTest2 {
 
         Apple.printApples(list);
 
-        getSortedList_1(list);
+//        getSortedList_1(list);
+        getSortedList_2(list, new Comparator() {
+            @Override
+            public int compare(Apple o1, Apple o2) {
+                return o1.getWeight().compareTo(o2.getWeight());
+            }
+        });
 
         Apple.printApples(list);
     }
