@@ -38,7 +38,7 @@ public class AppleTest2 {
         Apple.printApples(list);
 
 //        getSortedList_1(list);
-        getSortedList_2(list, new Comparator() {
+        getSortedList_2(list, new Comparator<Apple>() {
             @Override
             public int compare(Apple o1, Apple o2) {
                 return o1.getWeight().compareTo(o2.getWeight());
