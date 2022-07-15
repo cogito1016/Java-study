@@ -44,8 +44,10 @@ public class AppleTest2 {
 //                return o1.getWeight().compareTo(o2.getWeight());
 //            }
 //        });
-        list.sort((Apple o1, Apple o2)->o1.getWeight().compareTo(o2.getWeight()));
-        
+//        list.sort((Apple o1, Apple o2)->o1.getWeight().compareTo(o2.getWeight()));
+//        list.sort((o1,o2)-> o1.getWeight().compareTo(o2.getWeight()));
+        list.sort(Comparator.comparing(Apple::getWeight));
+
         Apple.printApples(list);
     }
 }
