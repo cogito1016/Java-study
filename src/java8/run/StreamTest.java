@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -49,9 +50,28 @@ public class StreamTest {
         }
     }
 
-    public static  void mapProcess_1(List<Dish> menu){
-//        Map<Dish.Type, List<Dish>> dishByType =
-//                menu.stream().collect;
+    public static  void stream_example_1(List<Dish> menu){
+        List<String> threeHighCaloricDishNames =
+                menu.stream()
+                        .filter(dish -> dish.getCalories() > 300)
+                        .map(Dish::getName)
+                        .limit(3)
+                        .collect(Collectors.toList());
+
+        System.out.println(threeHighCaloricDishNames);
+    }
+
+    public static void stream_example_2(List<Dish> menu){
+        List<String> highCaloricDishes = new ArrayList<>();
+        Iterator<Dish> iterator = menu.iterator();
+        while(iterator.hasNext()){
+            Dish dish = iterator.next();
+            if(dish.getCalories() > 300){
+                highCaloricDishes.add(dish.getName());
+            }
+        }
+
+        System.out.println(highCaloricDishes);
     }
 
     public static void main(String[] args) {
@@ -69,5 +89,8 @@ public class StreamTest {
 
 //        collectionProcess_1(menu);
 //        collectionProcess_2(menu);
+//        stream_example_1(menu);
+        stream_example_2(menu);
+
     }
 }
