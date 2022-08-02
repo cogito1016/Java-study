@@ -61,7 +61,7 @@ public class StreamTest {
         System.out.println(threeHighCaloricDishNames);
     }
 
-    public static void stream_example_2(List<Dish> menu){
+    public static void stream_example_2_collection(List<Dish> menu){
         List<String> highCaloricDishes = new ArrayList<>();
         Iterator<Dish> iterator = menu.iterator();
         while(iterator.hasNext()){
@@ -70,6 +70,16 @@ public class StreamTest {
                 highCaloricDishes.add(dish.getName());
             }
         }
+
+        System.out.println(highCaloricDishes);
+    }
+
+    public static void stream_example_2_stream(List<Dish> menu){
+        List<String> highCaloricDishes =
+                menu.stream()
+                        .filter(dish -> dish.getCalories() > 300)
+                        .map(Dish::getName)
+                        .collect(Collectors.toList());
 
         System.out.println(highCaloricDishes);
     }
@@ -90,7 +100,8 @@ public class StreamTest {
 //        collectionProcess_1(menu);
 //        collectionProcess_2(menu);
 //        stream_example_1(menu);
-        stream_example_2(menu);
+//        stream_example_2_collection(menu);
+        stream_example_2_stream(menu);
 
     }
 }
