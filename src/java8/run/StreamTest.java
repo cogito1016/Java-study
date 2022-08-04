@@ -94,7 +94,7 @@ public class StreamTest {
     public static void stream_example_3(List<Dish> menu){
         List<Dish> filteredMenu =
                 menu.stream()
-                        .filter(dish -> dish.getCalories() < 320)
+                        .filter(Dish::isVegetarian)
                         .collect(Collectors.toList());
         System.out.println(filteredMenu);
     }
