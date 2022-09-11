@@ -1,6 +1,10 @@
 package run;
 
+import entity.Dish;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.OptionalInt;
 
 public class Reduce_1 {
@@ -42,8 +46,21 @@ public class Reduce_1 {
 //        result = afterReduce_1(numbers);
 //        result = afterReduce_2(numbers);
 //        result = maxNuumberUsingReduce(numbers);
-        result = minNuumberUsingReduce(numbers).getAsInt();
+//        result = minNuumberUsingReduce(numbers).getAsInt();
 
-        System.out.println(result);
+//        System.out.println(result);
+
+        Dish d0 = new Dish("d0",false,100, Dish.Type.FISH);
+        Dish d1 = new Dish("d1",false,100, Dish.Type.FISH);
+        Dish d2 = new Dish("d2",false,100, Dish.Type.FISH);
+        Dish d3 = new Dish("d3",false,100, Dish.Type.FISH);
+        Dish d4 = new Dish("d4",false,100, Dish.Type.FISH);
+
+        List<Dish> dishes = Arrays.asList(d0,d1,d2,d3,d4);
+
+        Long result_example = dishes.stream()
+                        .count();
+
+        System.out.println(result_example);
     }
 }
