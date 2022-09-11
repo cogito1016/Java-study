@@ -22,6 +22,14 @@ public class Reduce_1 {
         return Arrays.stream(numbers).reduce(0,Integer::sum);
     }
 
+    public static int maxNuumberUsingReduce(int[] numbers){
+        return Arrays.stream(numbers).reduce(Integer.MIN_VALUE,(a,b)->a>b?a:b);
+    }
+
+    public static int minNuumberUsingReduce(int[] numbers){
+        return Arrays.stream(numbers).reduce(Integer.MAX_VALUE,(a,b)->a>b?b:a);
+    }
+
     public static void main(String[] args) {
         int[] numbers = {1,2,3,4,5};
 
@@ -29,7 +37,9 @@ public class Reduce_1 {
 
 //        result = beforeReduce_1(numbers);
 //        result = afterReduce_1(numbers);
-        result = afterReduce_2(numbers);
+//        result = afterReduce_2(numbers);
+//        result = maxNuumberUsingReduce(numbers);
+        result = minNuumberUsingReduce(numbers);
 
         System.out.println(result);
     }
