@@ -1,6 +1,7 @@
 package run;
 
 import java.util.Arrays;
+import java.util.OptionalInt;
 
 public class Reduce_1 {
 
@@ -22,12 +23,14 @@ public class Reduce_1 {
         return Arrays.stream(numbers).reduce(0,Integer::sum);
     }
 
-    public static int maxNuumberUsingReduce(int[] numbers){
-        return Arrays.stream(numbers).reduce(Integer.MIN_VALUE,(a,b)->a>b?a:b);
+    public static OptionalInt maxNuumberUsingReduce(int[] numbers){
+//        return Arrays.stream(numbers).reduce(Integer.MIN_VALUE,(a,b)->a>b?a:b);
+        return Arrays.stream(numbers).reduce(Integer::max);
     }
 
-    public static int minNuumberUsingReduce(int[] numbers){
-        return Arrays.stream(numbers).reduce(Integer.MAX_VALUE,(a,b)->a>b?b:a);
+    public static OptionalInt minNuumberUsingReduce(int[] numbers){
+//        return Arrays.stream(numbers).reduce(Integer.MAX_VALUE,(a,b)->a>b?b:a);
+        return Arrays.stream(numbers).reduce(Integer::min);
     }
 
     public static void main(String[] args) {
@@ -39,7 +42,7 @@ public class Reduce_1 {
 //        result = afterReduce_1(numbers);
 //        result = afterReduce_2(numbers);
 //        result = maxNuumberUsingReduce(numbers);
-        result = minNuumberUsingReduce(numbers);
+        result = minNuumberUsingReduce(numbers).getAsInt();
 
         System.out.println(result);
     }
