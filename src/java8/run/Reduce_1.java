@@ -58,8 +58,12 @@ public class Reduce_1 {
 
         List<Dish> dishes = Arrays.asList(d0,d1,d2,d3,d4);
 
-        Long result_example = dishes.stream()
-                        .count();
+//        Long result_example = dishes.stream()
+//                        .count();
+        int result_example = dishes.stream()
+                .map((element)->1)
+                        .reduce(Integer::sum)
+                                .get();
 
         System.out.println(result_example);
     }
