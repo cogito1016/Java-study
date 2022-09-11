@@ -18,13 +18,18 @@ public class Reduce_1 {
         return Arrays.stream(numbers).reduce(0, (a,b)->a+b);
     }
 
+    public static int afterReduce_2(int[] numbers){
+        return Arrays.stream(numbers).reduce(0,Integer::sum);
+    }
+
     public static void main(String[] args) {
         int[] numbers = {1,2,3,4,5};
 
         int result = 0;
 
 //        result = beforeReduce_1(numbers);
-        result = afterReduce_1(numbers);
+//        result = afterReduce_1(numbers);
+        result = afterReduce_2(numbers);
 
         System.out.println(result);
     }
