@@ -29,6 +29,6 @@ public class Transaction {
                 "trader=" + trader +
                 ", year=" + year +
                 ", value=" + value +
-                '}';
+                "}\n";
     }
 }
