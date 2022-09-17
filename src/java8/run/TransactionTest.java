@@ -21,6 +21,17 @@ public class TransactionTest {
         System.out.println(result);
     }
 
+    public static void problem_2(List<Transaction> transactions){
+        //거래자가 근무하는 모든 도시를 중복없이 나열
+        List<String> result =
+                transactions.stream()
+                        .map((element)->element.getTrader().getCity())
+                        .distinct()
+                        .collect(Collectors.toList());
+
+        System.out.println(result);
+    }
+
     public static void main(String[] args) {
         Trader raoul = new Trader("Raoul", "Cambridge");
         Trader mario = new Trader("Mario", "Milan");
@@ -36,7 +47,7 @@ public class TransactionTest {
         new Transaction(alan, 2012, 950)
         );
 
-        problem_1(transactions);
-
+//        problem_1(transactions);
+        problem_2(transactions);
     }
 }
