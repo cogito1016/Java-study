@@ -32,6 +32,18 @@ public class TransactionTest {
         System.out.println(result);
     }
 
+    public static void problem_3(List<Transaction> transactions){
+        //케임브리지에서 근무하는 모든 거래자를 찾아서 이름순으로 정렬
+        List<Trader> result =
+                transactions.stream()
+                        .map((element)->element.getTrader())
+                        .filter((element)->element.getCity().equals("Cambridge"))
+                        .sorted(Comparator.comparing(Trader::getName))
+                        .collect(Collectors.toList());
+
+        System.out.println(result);
+    }
+
     public static void main(String[] args) {
         Trader raoul = new Trader("Raoul", "Cambridge");
         Trader mario = new Trader("Mario", "Milan");
@@ -48,6 +60,7 @@ public class TransactionTest {
         );
 
 //        problem_1(transactions);
-        problem_2(transactions);
+//        problem_2(transactions);
+        problem_3(transactions);
     }
 }
