@@ -4,6 +4,7 @@ import entity.Trader;
 import entity.Transaction;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,7 +15,7 @@ public class TransactionTest {
 
         List<Transaction> result =  transactions.stream()
                 .filter((Transaction a)->a.getYear()==2011)
-                .sorted((Transaction a, Transaction b)-> a.getValue()>b.getValue()?1:-1)
+                .sorted(Comparator.comparing(Transaction::getValue))
                 .collect(Collectors.toList());
 
         System.out.println(result);
