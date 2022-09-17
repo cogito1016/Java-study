@@ -38,6 +38,7 @@ public class TransactionTest {
                 transactions.stream()
                         .map((element)->element.getTrader())
                         .filter((element)->element.getCity().equals("Cambridge"))
+                        .distinct()
                         .sorted(Comparator.comparing(Trader::getName))
                         .collect(Collectors.toList());
 
