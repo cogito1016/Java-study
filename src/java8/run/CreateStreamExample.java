@@ -14,7 +14,14 @@ public class CreateStreamExample {
         String s = System.getProperty("home");
 
         //예전같으면..
-        Stream<String> stream = s==null?Stream.empty():Stream.of(s);
+//        Stream<String> stream = s==null?Stream.empty():Stream.of(s);
+
+        //Java9에서는 아래가 가능
+//        Stream<String> stream = Stream.ofNullable(s);
+
+        //활용
+//        Stream<String> values = Stream.of("config","home","user")
+//                .flatMap(key->Stream.ofNullable(System.getProperty(key)));
     }
 
     public static void main(String[] args) {
