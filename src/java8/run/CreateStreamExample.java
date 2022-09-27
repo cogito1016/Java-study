@@ -1,5 +1,6 @@
 package run;
 
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class CreateStreamExample {
@@ -24,7 +25,14 @@ public class CreateStreamExample {
 //                .flatMap(key->Stream.ofNullable(System.getProperty(key)));
     }
 
+    public static void makeArraytoStream(){
+        int[] numbers = {1,2,3,4,5};
+        int sum = Arrays.stream(numbers).sum();
+        System.out.println(sum);
+    }
+
     public static void main(String[] args) {
-        createValueStream();
+//        createValueStream();
+        makeArraytoStream();
     }
 }
