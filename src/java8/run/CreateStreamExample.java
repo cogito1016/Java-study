@@ -1,5 +1,9 @@
 package run;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
@@ -25,6 +29,21 @@ public class CreateStreamExample {
 //                .flatMap(key->Stream.ofNullable(System.getProperty(key)));
     }
 
+    public static void createFileStream(){
+        long uniqueWords = 0;
+
+        try(Stream<String> lines =
+                    Files.lines(Paths.get("./resource/data.txt"), Charset.defaultCharset())){
+            uniqueWords = lines.flatMap(line->Arrays.stream(line.split(" ")))
+                    .distinct()
+                    .count();
+        }catch (IOException e){
+            System.out.println(e);
+        }
+
+        System.out.println("Word COunt : "+uniqueWords);
+    }
+
     public static void makeArraytoStream(){
         int[] numbers = {1,2,3,4,5};
         int sum = Arrays.stream(numbers).sum();
@@ -33,6 +52,7 @@ public class CreateStreamExample {
 
     public static void main(String[] args) {
 //        createValueStream();
-        makeArraytoStream();
+//        makeArraytoStream();
+        createFileStream();
     }
 }
