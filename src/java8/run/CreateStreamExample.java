@@ -44,6 +44,16 @@ public class CreateStreamExample {
         System.out.println("Word COunt : "+uniqueWords);
     }
 
+    public static void createInfinityStrem(){
+
+    }
+
+    public static void practiceIterateMethod(){
+        Stream.iterate(0, n->n+2)
+                .limit(10)
+                .forEach(System.out::println);
+    }
+
     public static void makeArraytoStream(){
         int[] numbers = {1,2,3,4,5};
         int sum = Arrays.stream(numbers).sum();
